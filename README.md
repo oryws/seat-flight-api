@@ -2,11 +2,12 @@
 
 API server that takes inputs for a one way flight (Departure time, from airport code, to airport code, flight number) and returns a map of the seats
 
-The server is temporarly available at `https://seats-api.serveo.net`.
+The server is temporarly available at `https://seats-api.serveo.net` and `https://radiant-headland-74749.herokuapp.com`.
 
 Here's a fast way of testing it:
 ```
 curl 'https://seats-api.serveo.net/api/v1/seats/westjet?departureTime=2019-05-26T10:30:00&fromAirportCode=YYC&toAirportCode=SFO&flightNumber=1508' | json_pp
+curl 'https://radiant-headland-74749.herokuapp.com/api/v1/seats/westjet?departureTime=2019-05-30T16:50:00&fromAirportCode=YVR&toAirportCode=LGW&flightNumber=0022' | json_pp
 ```
 
 ## Prerequisites:
