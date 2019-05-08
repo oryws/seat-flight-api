@@ -29,6 +29,8 @@ module API
           {
             flight: flight.seats
           }
+        rescue FlightNotFound
+          error! 'Flight not found', 404
         end
       end
     end

@@ -1,6 +1,8 @@
 require 'net/http'
 require 'json'
 
+class FlightNotFound < StandardError; end
+
 class Flight
   def initialize(
     departure_time, from_code, to_code, flight_number, airline_code
@@ -54,6 +56,8 @@ class Flight
     uri.query = URI.encode_www_form(params)
 
     res = Net::HTTP.get_response(uri)
+    raise FlightNotFound unless res.kind_of? Net::HTTPSuccess
+
     JSON.parse(res.body)
   end
 
